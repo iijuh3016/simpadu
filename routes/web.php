@@ -1,6 +1,9 @@
 <?php
 
+use App\Models\Mahasiswa;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MahasiswaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-});
+//Route::get('/', function () {
+    //return view('dashboard');
+//});
+
+route::get('/', [DashboardController::class, 'index']);
+route::get('/mahasiswa', [MahasiswaController::class, 'index']);
