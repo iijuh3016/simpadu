@@ -17,8 +17,12 @@ use App\Http\Controllers\MahasiswaController;
 */
 
 //Route::get('/', function () {
-    //return view('dashboard');
+//return view('dashboard');
 //});
 
 route::get('/', [DashboardController::class, 'index']);
-route::get('/mahasiswa', [MahasiswaController::class, 'index']);
+//route::get('/mahasiswa', [MahasiswaController::class, 'index']);
+//route::get('/mahasiswa', [MahasiswaController::class, 'store']);
+//route::get('/mahasiswa/create', [MahasiswaController::class, 'create']);
+Route::resource('/mahasiswa', MahasiswaController::class);
+
