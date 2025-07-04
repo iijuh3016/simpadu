@@ -4,6 +4,7 @@ use App\Models\Mahasiswa;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\ProdiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,5 +25,6 @@ route::get('/', [DashboardController::class, 'index']);
 //route::get('/mahasiswa', [MahasiswaController::class, 'index']);
 //route::get('/mahasiswa', [MahasiswaController::class, 'store']);
 //route::get('/mahasiswa/create', [MahasiswaController::class, 'create']);
-Route::resource('/mahasiswa', MahasiswaController::class);
+route::resource('/mahasiswa', MahasiswaController::class);
 
+Route::resource('/prodi', ProdiController::class);

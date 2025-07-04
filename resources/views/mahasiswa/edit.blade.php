@@ -35,19 +35,18 @@
         <div class="col-md-12">
           <div class="card mb-4">
             <div class="card-header">
-              <h3 class="card-title"> Tambah Mahasiswa</h3>
+              <h3 class="card-title"> Edit Mahasiswa</h3>
             </div>
 
             <!-- /.card-header -->
-            <form action="{{ url('mahasiswa') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ url('mahasiswa/'. $mahasiswa->nim) }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
               <div class="card-body">
-                <form action="tambahaksimahasiswa.php" method="post">
-
                   <div class="form-group">
                     <label for="nim" class="form-label">NIM</label>
-                    <input type="text" name="nim" id="nim" 
-                    class="form-control @error('nim')is-invalid @enderror" >
+                    <input type="text" class="form-control @error('nim')is-invalid 
+                    @enderror" id="nim" name="nim" value =" {{ $mahasiswa->nim }}" disabled >
                   @error('nim')
                   <div class ="invalid-feedback">
                     {{ $message }}
@@ -68,7 +67,8 @@
                   <div class="form-group">
                     <label for="nama" class="form-label">NAMA</label>
                     <input type="text" name="nama" id="nama" 
-                    class="form-control @error('nama')is-invalid @enderror" >
+                    class="form-control @error('nama')is-invalid @enderror"
+                    value="{{ old('nama', $mahasiswa->nama) }}" >
                   @error('nama')
                   <div class ="invalid-feedback">
                     {{ $message }}
@@ -80,7 +80,8 @@
                   <div class="form-group">
                     <label for="tanggalLahir" class="form-label">tanggalLahir</label>
                     <input type="date" name="tanggalLahir" id="tanggalLahir" 
-                    class="form-control @error('tanggalLahir')is-invalid @enderror" >
+                    class="form-control @error('tanggalLahir')is-invalid @enderror" 
+                    value ="{{ old('nama', $mahasiswa->tanggalLahir) }}" >
                   @error('tanggalLahir')
                   <div class ="invalid-feedback">
                     {{ $message }}
@@ -90,7 +91,8 @@
                   <div class="form-group">
                     <label for="telp" class="form-label">Telp</label>
                     <input type="text" name="telp" id="telp" 
-                    class="form-control @error('telp')is-invalid @enderror" >
+                    class="form-control @error('telp')is-invalid @enderror" 
+                    value ="{{ old('telp', $mahasiswa->telp) }}" >
                   @error('telp')
                   <div class ="invalid-feedback">
                     {{ $message }}
@@ -100,7 +102,8 @@
                   <div class="form-group">
                     <label for="email">Email</label>
                     <input type="text" name="email" id="email" 
-                    class="form-control  @error('email')is-invalid @enderror" >
+                    class="form-control  @error('email')is-invalid @enderror" 
+                    value ="{{ old('email', $mahasiswa->email) }}" >
                   @error('email')
                   <div class ="invalid-feedback">
                     {{ $message }}

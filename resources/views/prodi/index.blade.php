@@ -34,9 +34,9 @@
                 <div class="col-md-12">
                     <div class="card mb-4">
                         <div class="card-header">
-                            <h3 class="card-title">Data Mahasiswa</h3>
+                            <h3 class="card-title">Daftar prodi</h3>
                             <div class="card-tools">
-                                <a href="/mahasiswa/create" class="btn btn-primary">Tambah Mahasiswa</a>
+                                <a href="/prodi/create" class="btn btn-primary">Tambah prodi</a>
                             </div>
                         </div>
                         <!-- /.card-header -->
@@ -44,36 +44,30 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <th>No</th>
-                                    <th>NIM</th>
                                     <th>Nama</th>
-                                    <th>tanggalLahir</th>
-                                    <th>telp</th>
-                                    <th>email</th>
-                                    <th>prodi</th>
-                                    <th>Foto</th>
+                                    <th>kaprodi</th>
+                                    <th>jurusan</th>
+                                    <th>foto</th>
                                     <th>Aksi</th>
 
                                 </thead>
                                 <tbody>
                                   
-                                 
-                                    @foreach ($mahasiswa as $m) 
+                                    @foreach ($prodi as $p) 
                                         <tr>
                                             <td>{{  $loop->iteration }}</td>
-                                            <td>{{ $m->nim }}</td>
-                                            <td>{{ $m->nama }}</td>
-                                            <td>{{ $m->tanggalLahir }}</td>
-                                            <td>{{ $m->telp }}</td>
-                                            <td>{{ $m->email }}</td>
-                                            <td>{{ $m->prodi->nama}}</td>
+                                            <td>{{ $p->nama }}</td>
+                                            <td>{{ $p->kaprodi }}</td>
+                                            <td>{{ $p->jurusan }}</td>
                                             <td>
-                                                @if($m->foto)
-                                                    <img src="{{ asset('storage/' . $m->foto) }}" alt="Foto" width="60">
-                                                @else
-                                                    <span>Tidak ada foto</span>
-                                                @endif
-                                            <td><a href="{{ url('mahasiswa/' .  $m->nim . '/edit') }}" class="btn btn-warning">Edit</a> |
-                                                <form action="{{ url('mahasiswa/' . $m->nim) }}" method="POST" class="d-inline">
+                                                 @if($p->foto)
+            <img src="{{ asset('storage/' . $p->foto) }}" alt="Foto Prodi" width="120" height="100">
+        @else
+            <span>Tidak ada foto</span>
+        @endif
+    </td>
+                                            <td><a href="{{ url('prodi/' .  $p->id . '/edit') }}" class="btn btn-warning">Edit</a> |
+                                                <form action="{{ url('prodi/' . $p->id) }}" method="POST" class="d-inline">
                                                     @method('delete')
                                                     @csrf
                                                     <button class="btn btn-danger"

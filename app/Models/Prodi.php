@@ -9,5 +9,11 @@ class Prodi extends Model
 {
      // 
     protected $table = 'prodi';
+    protected $fillable = [
+        'nama',
+        'kaprodi',
+        'jurusan',
+        'foto'
+    ];
 
 }

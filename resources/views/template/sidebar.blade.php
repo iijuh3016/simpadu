@@ -6,8 +6,8 @@
           <a href="./index.html" class="brand-link">
             <!--begin::Brand Image-->
             <img
-              src="../assets/img/sajji.png"
-              alt="AdminLTE Logo"
+              src="{{ asset('assets/img/sajji.png') }}"
+              alt="RichBowl Logo"
               class="brand-image opacity-75 shadow" />
             <!--end::Brand Image-->
             <!--begin::Brand Text-->
@@ -28,13 +28,13 @@
               data-accordion="false">
 
               <li class="nav-item">
-                <a href="index.php" class="nav-link">
+              <a href="{{ url ("mahasiswa") }}" class="nav-link">
                   <i class="bi bi-mortarboard"></i>
                   <p>Mahasiswa</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="prodi.php" class="nav-link">
+                <a href="{{ url ("prodi") }}" class="nav-link">
                   <i class="bi bi-clipboard-minus-fill"></i>
                   <p>Prodi studi</p>
                 </a>
